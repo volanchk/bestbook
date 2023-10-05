@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Best book</title>
+</head>
+<style>
+    h1 {
+    font-family: Didot;
+    font-size: 32px; font-style: normal;
+    font-variant: bold; font-weight: 400;
+    line-height: 23px;
+    color: rgb(239, 41, 240)
+    }
+
+</style>
+<body style="background-color: rgb(71, 73, 172);
+            margin:0; padding:0;">
+
+    <div style="background-color: rgb(57, 22, 54)">
+
+        <picture>
+            {% load static %}
+            <a href="/"><img src="{% static 'files/logo.png' %}"
+                             width="160" height="60"></a>
+        </picture>
+
+        <input type="search" style="position: relative; bottom: 25px; left: 25px">
+
+        <a style="position: relative; bottom: 25px;
+        left: 70px; color: red"> <- Try to search</a>
+        <button style="background-color: rgb(97, 238, 170);
+        position: relative; bottom: 22px; left: 125px">Add topic</button>
+        <a href="/register">Register</a>
+    </div>
+
+    {% block content %}
+    {% endblock content%}
+
+</body>
+</html>
+  
