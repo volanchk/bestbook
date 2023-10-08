@@ -31,7 +31,18 @@
         left: 70px; color: red"> <- Try to search</a>
         <button style="background-color: rgb(97, 238, 170);
         position: relative; bottom: 22px; left: 125px">Add topic</button>
-        <a href="/register">Register</a>
+        <a href="/register" style="color: rgb(72, 256, 104); float: right;
+                                   margin-right: 30px;
+                                   margin-top: 22px">Register</a>
+        {% if is_user_logged_in %}
+            <h2 style="color: rgb(72, 256, 104); float: right;
+                                   margin-right: 50px;
+                                   margin-top: 22px">Log out</h2>
+        {% else %}
+            <a href="/login" style="color: rgb(72, 256, 104); float: right;
+                                   margin-right: 50px;
+                                   margin-top: 22px">Log in</a>
+        {% endif %}
     </div>
 
     {% block content %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth.models import User
 # from .forms import RegisterForm
 
 
@@ -16,6 +17,4 @@ def log_in(request):
 
 
 def log_out(request):
-    logout(request)
-
     return render(request, "index.html")
