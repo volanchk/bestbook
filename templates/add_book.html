@@ -1,0 +1,33 @@
+{% extends "forms.html" %}
+
+{% block content %}
+
+<form style="margin-left: 40%;
+             margin-top: 15%"
+      method="POST"
+      action="">
+
+    {% csrf_token %}
+
+    <table>
+        <tr>
+            <td>{{ form.title.label_tag }}</td>
+            <td>{{ form.title }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.author.label_tag }}</td>
+            <td>{{ form.author }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.publisher.label_tag }}</td>
+            <td>{{ form.publisher }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.year.label_tag }}</td>
+            <td>{{ form.year }}</td>
+        </tr>
+    </table>
+    <input type="submit" value="Add book!" style="margin-top: 10px">
+  </form>
+
+{% endblock %}

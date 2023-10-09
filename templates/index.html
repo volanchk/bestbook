@@ -29,16 +29,23 @@
 
         <a style="position: relative; bottom: 25px;
         left: 70px; color: red"> <- Try to search</a>
-        <button style="background-color: rgb(97, 238, 170);
-        position: relative; bottom: 22px; left: 125px">Add topic</button>
+
+        <a href="/add_book" style="color: rgb(256, 256, 104);
+                                   position: relative;
+                                   bottom: 22px;
+                                   left: 125px">Add topic</a>
+
         <a href="/register" style="color: rgb(72, 256, 104); float: right;
                                    margin-right: 30px;
                                    margin-top: 22px">Register</a>
+
         {% if user.is_authenticated %}
+
             <a href="/logout" style="color: rgb(72, 256, 104); float: right;
                                    margin-right: 50px;
                                    margin-top: 22px">Log out</a>
         {% else %}
+
             <a href="/login" style="color: rgb(72, 256, 104); float: right;
                                    margin-right: 50px;
                                    margin-top: 22px">Log in</a>

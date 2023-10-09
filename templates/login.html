@@ -1,0 +1,29 @@
+{% extends "forms.html" %}
+
+{% block content %}
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<form style="margin-left: 40%;
+             margin-top: 15%"
+      method="post"
+      action="{% url 'home' %}">
+
+    {% csrf_token %}
+
+    <table>
+        <tr>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+    </table>
+    <input type="submit" value="Log in!" style="margin-top: 10px">
+  </form>
+
+{% endblock %}
