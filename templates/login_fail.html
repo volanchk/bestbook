@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Best book</title>
+</head>
+<style>
+    h1 {
+    font-family: Didot;
+    font-size: 32px; font-style: normal;
+    font-variant: bold; font-weight: 400;
+    line-height: 23px;
+    color: yellow
+    }
+
+</style>
+<body style="background-color: rgb(71, 73, 172);
+            margin:0; padding:0;">
+
+    <div style="background-color: rgb(57, 22, 54)">
+
+        <picture>
+            {% load static %}
+            <a href="/"><img src="{% static 'files/logo.png' %}"
+                             width="160" height="60"></a>
+        </picture>
+
+            <a href="/login" style="color: rgb(72, 256, 104); float: right;
+                                   margin-right: 50px;
+                                   margin-top: 22px">Log in</a>
+    </div>
+
+    <h1 style="text-align: center">Your username or password didn't match. Please try again.</h1>
+</body>
+</html>

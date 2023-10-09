@@ -34,10 +34,10 @@
         <a href="/register" style="color: rgb(72, 256, 104); float: right;
                                    margin-right: 30px;
                                    margin-top: 22px">Register</a>
-        {% if is_user_logged_in %}
-            <h2 style="color: rgb(72, 256, 104); float: right;
+        {% if user.is_authenticated %}
+            <a href="/logout" style="color: rgb(72, 256, 104); float: right;
                                    margin-right: 50px;
-                                   margin-top: 22px">Log out</h2>
+                                   margin-top: 22px">Log out</a>
         {% else %}
             <a href="/login" style="color: rgb(72, 256, 104); float: right;
                                    margin-right: 50px;
