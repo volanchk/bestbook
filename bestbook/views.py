@@ -2,6 +2,19 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import User
 from .forms import RegisterForm, SignUserIn
+from ..polls.models import Topic
+
+
+# def what_i_need(request):
+#     # if this is a POST request we need to process the form data
+#
+#     queryset = Topic.objects.all()
+#
+#     context = {
+#         "object_list": queryset
+#     }
+#
+#     return render(request, "home.html", context)
 
 
 def home(request):
