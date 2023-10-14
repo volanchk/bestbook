@@ -51,6 +51,9 @@
                                    margin-top: 22px">Log in</a>
         {% endif %}
     </div>
+    {% for element in object_list %}
+        <h1>{{ element.topic }}</h1>
+    {% endfor %}
 
     {% block content %}
     {% endblock content%}
