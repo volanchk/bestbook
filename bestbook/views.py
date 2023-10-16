@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import User
 from .forms import RegisterForm, SignUserIn
-from polls.models import Topic
+from polls.forms import TopicsForm, BooksForm
+from polls.models import Topics, Books
 
 
 def home(request):
@@ -16,10 +17,12 @@ def home(request):
         else:
             return redirect('/login_fail')
 
-    queryset = Topic.objects.all()
+    topics_queryset = Topics.objects.all()
+    books_queryset = Books.objects.all()
 
     context = {
-        "object_list": queryset
+        "topic_list": topics_queryset,
+        "books_list": books_queryset
     }
 
     return render(request, "index.html", context)

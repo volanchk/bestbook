@@ -1,19 +1,19 @@
 from django import forms
-from .models import Book, Topic
+from .models import Topics, Books
 
 
-class CreateTopic(forms.ModelForm):
+class TopicsForm(forms.ModelForm):
     class Meta:
-        model = Topic
+        model = Topics
         fields = [
             "topic"
         ]
 
 
-class BookCreation(forms.ModelForm):
+class BooksForm(forms.ModelForm):
     class Meta:
-        model = Book
+        model = Books
         fields = [
-            "title"
+            'name',
+            'topic'
         ]
-

@@ -1,0 +1,22 @@
+{% extends "forms.html" %}
+
+{% block content %}
+<a href="/" style="color:yellow">BACK</a><br>
+<form method="post" action="" id="vote">
+  {% csrf_token %}
+  <fieldset form="vote">
+    <legend>Choose your favorite book</legend>
+
+    {% for book in books_list %}
+    <input type="radio" id="book" name="choice" value="{{ book.id }}"/>
+    <label for="book">{{ book.name }}</label><br>
+    {% endfor %}
+    <br>
+    <input type="submit" value="Vote for...">
+  </fieldset>
+</form>
+<br>
+
+<a href="/{{ topic }}/add_book"  style="color:yellow">ADD BOOK</a><br>
+
+{% endblock %}

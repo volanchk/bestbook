@@ -51,8 +51,9 @@
                                    margin-top: 22px">Log in</a>
         {% endif %}
     </div>
-    {% for element in object_list %}
-        <h1>{{ element.topic }}</h1>
+    {% for element in topic_list %}
+        <a href="{{ element.id }}/election" style="color:yellow">{{ element.topic }} : </a><br>
+        <br>
     {% endfor %}
 
     {% block content %}

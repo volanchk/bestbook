@@ -8,13 +8,7 @@
       action="">
 
     {% csrf_token %}
-
-    <table>
-        <tr>
-            <td style="color: yellow">{{ form.topic.label_tag }}</td>
-            <td>{{ form.topic }}</td>
-        </tr>
-    </table>
+    <input type="text" name="topic" placeholder="topic"><br>
     <input type="submit" value="Add topic!" style="color: green; margin-top: 10px; margin-left: 78px">
 </form>
 

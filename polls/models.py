@@ -1,9 +1,17 @@
 from django.db import models
 
 
-class Topic(models.Model):
-    topic = models.CharField(max_length=100)
+class Topics(models.Model):
+    topic = models.CharField(max_length=30, unique=True)
+
+    def __str__(self):
+        return f"{self.topic}"
 
 
-class Book(models.Model):
-    title = models.CharField(max_length=100)
+class Books(models.Model):
+    name = models.CharField(max_length=30)
+    topic = models.PositiveSmallIntegerField()
+    votes = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.name}"

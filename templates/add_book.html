@@ -2,19 +2,16 @@
 
 {% block content %}
 
+<h1 style="color: olive">ADD {{ topic_name }} BOOK</h1>
+
 <form style="margin-left: 40%;
              margin-top: 15%"
       method="POST"
       action="">
 
     {% csrf_token %}
-
-    <table>
-        <tr>
-            <td style="color: yellow">{{ form.title.label_tag }}</td>
-            <td>{{ form.title }}</td>
-        </tr>
-    </table>
+    <h3 style="margin-right: 30px; color: yellow;">Name: <input type="text" name="name" style="margin-left: 30px"></h3>
+    <input type="hidden" name="topic" value="{{ topic }}">
     <input type="submit" value="Add book!" style="color: green; margin-top: 10px; margin-left: 78px">
   </form>
 
