@@ -43,8 +43,8 @@ def election(request, pk):
     form = BooksForm(request.POST or None)
 
     topic_name = Topics.objects.get(id=pk)
-    books = [i['name'] for i in Books.objects.values('name')]
-    score = [i['votes'] for i in Books.objects.values('votes')]
+    books = [i['name'] for i in Books.objects.values('name').filter(topic=pk)]
+    score = [i['votes'] for i in Books.objects.values('votes').filter(topic=pk)]
 
     fig = Figure()
     ax = fig.subplots()
