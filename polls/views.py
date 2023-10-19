@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from .forms import BooksForm, TopicsForm
 from .models import Topics, Books
+from matplotlib.figure import Figure
 
 
 def create_topic(request):
@@ -39,20 +40,32 @@ def add_book(request, pk):
 def election(request, pk):
 
     books_queryset = Books.objects.all().filter(topic=pk)
-
     form = BooksForm(request.POST or None)
+
+    topic_name = Topics.objects.get(id=pk)
+    books = [i['name'] for i in Books.objects.values('name')]
+    score = [i['votes'] for i in Books.objects.values('votes')]
+
+    fig = Figure()
+    ax = fig.subplots()
+    ax.bar(books, score, color="coral")
+
+    plot = f"static/scores/{topic_name}.png"
+
+    fig.savefig(plot)
 
     if request.POST.get('choice'):
         result = request.POST.get('choice')
         entry = Books.objects.get(id=result)
         entry.votes += 1
         entry.save()
-        return redirect('/')
+        return redirect('.')
 
     context = {
         "form": form,
         "topic": pk,
-        "books_list": books_queryset
+        "books_list": books_queryset,
+        "pic": plot
     }
 
     return render(request, "election.html", context)

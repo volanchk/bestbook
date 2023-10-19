@@ -2,6 +2,13 @@
 
 {% block content %}
 <a href="/" style="color:yellow">BACK</a><br>
+<br>
+<br>
+<picture>
+    <img src="/{{ pic }}">
+</picture>
+<br>
+<br>
 <form method="post" action="" id="vote">
   {% csrf_token %}
   <fieldset form="vote">
