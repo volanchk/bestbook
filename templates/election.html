@@ -1,12 +1,20 @@
 {% extends "forms.html" %}
 
 {% block content %}
-<a href="/" style="color:yellow">BACK</a><br>
 <br>
+<a href="/" style="color:yellow;
+                   position: relevant;
+                   margin-left: 60px;
+                   margin-right: 60px">BACK</a>
+<a href="/{{ topic }}/add_book"  style="color:yellow">ADD BOOK</a><br>
 <br>
-<picture>
+
+{% if picture_state %}
+<picture style="margin-left: 60px">
     <img src="/{{ pic }}">
 </picture>
+{% endif %}
+
 <br>
 <br>
 <form method="post" action="" id="vote">
@@ -23,7 +31,4 @@
   </fieldset>
 </form>
 <br>
-
-<a href="/{{ topic }}/add_book"  style="color:yellow">ADD BOOK</a><br>
-
 {% endblock %}
