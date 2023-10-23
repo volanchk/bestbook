@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect
 from .forms import BooksForm, TopicsForm
 from .models import Topics, Books
 from matplotlib.figure import Figure
+from random import choice
 
 
 def create_topic(request):
@@ -50,7 +51,10 @@ def election(request, pk):
     plt.style.use('Solarize_Light2')
     fig = Figure()
     ax = fig.subplots()
-    votes = ax.bar(books, score, color="coral",
+    colors = ['#B33C86', '#51A3A3', '#EA638C']
+    colors_2 = ['#34344A', '#80475E', '#CC5A71', '#C89B7B', '#F0F757']
+    # '#51A3A3'
+    votes = ax.bar(books, score, color='#80475E',
                    width=0.1, align="center",
                    edgecolor="black", linewidth=0,
                    label=topic_name)
@@ -59,19 +63,6 @@ def election(request, pk):
     plot = f"static/scores/{topic_name}.png"
 
     fig.savefig(plot)
-
-    picture_existence = bool
-
-    try:
-        picture_existence = open(plot, 'r')
-
-    except FileNotFoundError:
-
-        picture_existence = False
-
-    finally:
-
-        print(picture_existence)
 
     if request.POST.get('choice'):
         result = request.POST.get('choice')
@@ -84,8 +75,7 @@ def election(request, pk):
         "form": form,
         "topic": pk,
         "books_list": books_queryset,
-        "pic": plot,
-        "picture_state": picture_existence
+        "pic": plot
     }
 
     return render(request, "election.html", context)

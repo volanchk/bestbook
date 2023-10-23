@@ -6,15 +6,15 @@
 </head>
 <style>
     h1 {
-    font-family: Didot;
-    font-size: 32px; font-style: normal;
-    font-variant: bold; font-weight: 400;
+    font-family: Ubuntu;
+    font-size: 21px; font-style: normal;
+    font-variant: normal; font-weight: 100;
     line-height: 23px;
     color: rgb(239, 41, 240)
     }
 
 </style>
-<body style="background-color: rgb(71, 73, 172);
+<body style="background-color: rgb(137, 189, 158);
             margin:0; padding:0;">
 
     <div style="background-color: rgb(57, 22, 54)">
@@ -28,9 +28,9 @@
         <input type="search" style="position: relative; bottom: 25px; left: 25px">
 
         <a style="position: relative; bottom: 25px;
-        left: 70px; color: red"> <- Try to search</a>
+        left: 70px; color: rgb(219, 76, 64)"> <-- Try to search</a>
 
-        <a href="/add_topic" style="color: rgb(256, 256, 104);
+        <a href="/add_topic" style="color: rgb(240, 201, 135);
                                    position: relative;
                                    bottom: 22px;
                                    left: 125px">Add topic</a>
@@ -52,10 +52,9 @@
         {% endif %}
     </div>
     {% for element in topic_list %}
-        <a href="{{ element.id }}/election"><h1 style="color:yellow;
-                                                   margin-left: 30px;
-                                                   margin-top: 30px">{{ element.topic }} :</h1></a><br>
-        <br>
+        <a href="{{ element.id }}/election"><h1 style="color: rgb(139, 30, 63);
+                                                   margin-left: 25px;
+                                                   margin-top: 30px">{{ element.topic }}</h1></a>
     {% endfor %}
 
     {% block content %}
