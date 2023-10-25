@@ -15,3 +15,9 @@ class Books(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+
+class Votes(models.Model):
+    topic = models.PositiveIntegerField()
+    user_id = models.PositiveIntegerField()
+    book_id = models.PositiveIntegerField()

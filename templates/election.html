@@ -8,25 +8,34 @@
                    margin-right: 60px">BACK</a>
 <a href="/{{ topic }}/add_book"  style="color:yellow">ADD BOOK</a><br>
 <br>
-
+{% if votes_not_empty  %}
 <picture style="margin-left: 60px">
     <img src="/{{ pic }}">
 </picture>
 
 <br>
 <br>
-<form method="post" action="" id="vote">
-  {% csrf_token %}
-  <fieldset form="vote">
-    <legend>Choose your favorite book</legend>
+{% endif %}
+{% if books_not_empty %}
+    {% if request.user.id in voters %}
+        <a href="/{{ topic}}/unvote"><input type="button" name="unvote" value="Unvote"></a>
+    {% else %}
+    <form method="post" action="" id="vote">
+      {% csrf_token %}
+      <fieldset form="vote">
+        <legend>Choose your favorite book</legend>
 
-    {% for book in books_list %}
-    <input type="radio" id="book" name="choice" value="{{ book.id }}"/>
-    <label for="book">{{ book.name }}</label><br>
-    {% endfor %}
-    <br>
-    <input type="submit" value="Vote for...">
+        {% for book in books_list %}
+        <input type="radio" id="book" name="choice" value="{{ book.id }}"/>
+        <label for="book">{{ book.name }}</label><br>
+        {% endfor %}
+
+        <br>
+        <input type="submit" name="vote" value="Vote for...">
+    {% endif %}
+{% endif %}
   </fieldset>
 </form>
 <br>
+
 {% endblock %}
