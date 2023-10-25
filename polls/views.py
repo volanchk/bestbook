@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect
 from .forms import BooksForm, TopicsForm
 from .models import Topics, Books, Votes
 from matplotlib.figure import Figure
-from random import choice
 
 
 # The election function began to grow dangerously large,
