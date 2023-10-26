@@ -20,6 +20,10 @@ def home(request):
     topics_queryset = Topics.objects.all()
     books_queryset = Books.objects.all()
 
+    if request.GET or None:
+        results = Topics.objects.filter(topic__contains=request.GET["q"])
+        return render(request, "searching_results.html", {"results": results})
+
     context = {
         "topic_list": topics_queryset,
         "books_list": books_queryset
@@ -76,4 +80,3 @@ def log_out(request):
 
 def login_fail(request):
     return render(request, "login_fail.html")
-

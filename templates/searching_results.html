@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Best book</title>
+</head>
+<style>
+    h1 {
+    font-family: Ubuntu;
+    font-size: 21px; font-style: normal;
+    font-variant: normal; font-weight: 100;
+    line-height: 23px;
+    color: rgb(239, 41, 240)
+    }
+
+</style>
+<body style="background-color: #2374AB;
+            margin:0; padding:0;">
+
+<div style="background-color: rgb(57, 22, 54)">
+
+<picture>
+{% load static %}
+<a href="/"><img src="{% static 'files/logo.png' %}"
+                 width="160" height="60"></a>
+</picture>
+</div>
+<h1 style="color: #FF8484;
+           margin-left: 25px;
+           margin-top: 30px">Here what we found:</h1>
+    {% if results %}
+    {% for result in results %}
+        <a href="{{ result.id }}/election" style="color: #2374AB"><h1 style="color: #F4B860;
+                                                   margin-left: 25px;
+                                                   margin-top: 30px">{{ result.topic }}</h1></a>
+    {% endfor %}
+    {% else %}
+        <h1>Sorry! Nothing at all!</h1>
+    {% endif %}
+</body>
+</html>
+

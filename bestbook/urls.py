@@ -25,6 +25,7 @@ urlpatterns = [
     path('login/', views.log_in, name="loging_in"),
     path('logout/', views.log_out, name="loging_out"),
     path('login_fail/', views.login_fail, name="loging_fail"),
-    path('', include('polls.urls'))
+    path('', include('polls.urls')),
+    # path('search_results/', views.search_results, name="results")
 
 ]
