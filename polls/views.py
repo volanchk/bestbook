@@ -93,7 +93,8 @@ def election(request, pk):
         "pic": plot,
         "voters": voters,
         "books_not_empty": books_not_empty,
-        "votes_not_empty": votes_not_empty
+        "votes_not_empty": votes_not_empty,
+        "name": topic_name
     }
 
     # print(books_not_empty)
