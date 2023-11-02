@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import User
 from .forms import RegisterForm, SignUserIn
@@ -17,11 +18,11 @@ def home(request):
         else:
             return redirect('/login_fail')
 
-    topics_queryset = Topics.objects.all()
+    topics_queryset = Topics.objects.all().order_by("topic")
     books_queryset = Books.objects.all()
 
     if request.GET or None:
-        results = Topics.objects.filter(topic__contains=request.GET["q"])
+        results = Topics.objects.filter(topic__contains=request.GET["q"]).order_by("topic")
         return render(request, "searching_results.html", {"results": results})
 
     context = {

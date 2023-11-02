@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import BooksForm, TopicsForm
 from .models import Topics, Books, Votes
@@ -27,6 +28,7 @@ def create_plot(topic, titles, voices):
     return path
 
 
+@login_required(login_url="/login")
 def create_topic(request):
 
     form = TopicsForm(request.POST or None)
@@ -42,6 +44,7 @@ def create_topic(request):
     return render(request, "add_topic.html", context)
 
 
+@login_required(login_url="/login/")
 def add_book(request, pk):
 
     form = BooksForm(request.POST or None)
@@ -60,6 +63,7 @@ def add_book(request, pk):
     return render(request, "add_book.html", context)
 
 
+@login_required(login_url="/login/")
 def election(request, pk):
 
     books_not_empty = Books.objects.filter(topic=pk).exists()
